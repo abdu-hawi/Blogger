@@ -1,0 +1,26 @@
+<%= render "layouts/flash_messages" %>
+
+<div class="card ">
+	<div class="card-header  bg-dark text-white">
+		<h3>User Login</h3>
+	</div>
+	<div class="card-body">
+	<%= form_tag(:url=>{:action=>"login"}, method: "post") do %>
+
+			<div class="field">
+				<%= label_tag :email %>
+				<%= text_field_tag :email , '' ,:required=> true, class:"form-control" %> 
+			</div>
+			<div class="field">
+				<%= label_tag :password %>
+				<%= text_field_tag :password ,'',:required=> true, class:"form-control" %>
+			</div>
+	</div>
+	<div class="action card-footer">
+		<%= submit_tag "login" ,class:"btn btn-lg btn-primary btn-block" %> <br>
+		<%= link_to 'New User', "/users/new" , class:"btn btn-success text-white col-lg-2"%>
+		<%= link_to 'HOME', "/articals" , class:"btn btn-warning text-white col-lg-2" %>
+	</div>
+	<% end %>
+ </div>
+</div>

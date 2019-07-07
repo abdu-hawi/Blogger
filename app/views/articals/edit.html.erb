@@ -1,0 +1,12 @@
+<div class="card ">
+	<div class="card-header  bg-dark text-white">
+		<h3>Editing Artical</h3>
+	</div>
+	<div class="card-body">
+		<%= render 'form', artical: @artical %>
+	</div>
+	<div class="action card-footer bg-dark">
+		<%= link_to 'Show', @artical , class:"btn btn-primary text-white" %>
+		<%= link_to 'Back', articals_path , class:"btn btn-info text-white" %>
+	</div>
+</div>

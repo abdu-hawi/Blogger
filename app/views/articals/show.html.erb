@@ -1,0 +1,39 @@
+<br>
+<%= render "layouts/flash_messages" %>
+
+<div class="card ">
+	<div class="card-header">
+		<h3><%= @artical.title %></h3>
+		<p>
+			Writter by: <%= @artical.user.email %>
+		</p>
+		<div>
+		<%= link_to 'Back', articals_path , class:"btn btn-warning text-white" %>
+			<%= link_to 'Edit', edit_artical_path(@artical) , class:"btn btn-info text-white" %> 
+		</div>
+	</div>
+	<div class="card-body">
+		<%= @artical.body %>
+	</div>
+</div>
+<table class="col-lg-12">
+	<tbody>
+		<h3>Comments</h3>
+		<% @artical.comments.each do |c| %>
+		<tr>
+			<td><hr><%= c.body%></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<hr style="border-width:0.2em;border-style: solid;">
+<%= form_for([@artical,@artical.comments.build]) do |f| %>
+	<dif class="field">
+		<%= f.text_area :body , :size => "2x2"  , class:"form-control col-lg-12" %>
+	</dif><br>
+	<dif class = "action" >
+		<%= f.submit class:"btn btn-success text-white" %>
+	</dif>
+<% end %>
+
+<br>
